@@ -43,3 +43,18 @@
     alert(message);
     
 ### 数组
+
+> 大多数其他编程语言不允许直接改变数组的大小，越界访问索引会报错。然而，JavaScript的Array却不会有任何错误。在编写代码时，不建议直接修改Array的大小，访问索引时要确保索引不会越界。
+> 如果不给slice()传递任何参数，它就会从头到尾截取所有元素。利用这一点，我们可以很容易地复制一个Array
+
+    var arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+    var aCopy = arr.slice();
+    aCopy; // ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    aCopy === arr; // false
+    
+> concat()方法把当前的Array和另一个Array连接起来，并返回一个新的Array
+> **所以一定要注意返回的对象才是最新的数组，而不是原来的数组**
+> 实际上，concat()方法可以接收任意个元素和Array，并且自动把Array拆开，然后全部添加到新的Array里：
+
+    var arr = ['A', 'B', 'C'];
+    arr.concat(1, 2, [3, 4]); // ['A', 'B', 'C', 1, 2, 3, 4]
